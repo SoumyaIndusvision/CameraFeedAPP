@@ -12,7 +12,7 @@ class CameraStreamView(APIView):
     @swagger_auto_schema(
         operation_description="Stream a live camera feed by camera ID",
         responses={
-            200: openapi.Response('Success', description='Live stream returned'),
+            200: openapi.Response('Success'),
             404: openapi.Response('Camera not found')
         },
         manual_parameters=[
