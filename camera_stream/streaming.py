@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 def stream_camera_feed(camera):
     try:
         # Construct the RTSP URL using the camera's credentials
-        camera_url = f"rtsp://{camera.username}:{camera.password}@{camera.ip_address}:{camera.port}/h264.sdp"
+        camera_url = f"rtsp://{camera.username}:{camera.password}@{camera.ip_address}:{camera.port}"
         
         # Open the camera feed using OpenCV
         cap = cv2.VideoCapture(camera_url)
