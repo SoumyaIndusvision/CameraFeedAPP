@@ -32,11 +32,10 @@ CORS_ORIGIN_ALLOW_ALL=True
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    'https://hul.aivolved.in',
-    'https://www.hul.aivolved.in'
+    'http://localhost:5173',
 ]
 
-ALLOWED_HOSTS = ['*','localhost', '127.0.0.1', '[::1]', 'hul.aivolved.in', 'www.hul.aivolved.in']
+ALLOWED_HOSTS = ['*','localhost', '127.0.0.1', '[::1]']
 
 
 # Application definition

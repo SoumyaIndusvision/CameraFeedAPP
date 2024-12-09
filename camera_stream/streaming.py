@@ -1,14 +1,19 @@
 import cv2
 import logging
 from django.http import StreamingHttpResponse, HttpResponse
+# from urllib.parse import quote
 
 # Set up logging for debugging
 logger = logging.getLogger(__name__)
 
 def stream_camera_feed(camera):
     try:
+        # password = camera.password
+        # URL-encode the password to handle special characters
+        # encoded_password = quote(password)
         # Construct the RTSP URL using the camera's credentials
-        camera_url = f"rtsp://{camera.username}:{camera.password}@{camera.ip_address}:{camera.port}"
+        camera_url = f"rtsp://{camera.username}:{camera.password}@{camera.ip_address}:{camera.port}/cam/realmonitor?channel=1&subtype=0"
+        print(camera_url)
         
         # Open the camera feed using OpenCV
         cap = cv2.VideoCapture(camera_url)
@@ -16,6 +21,7 @@ def stream_camera_feed(camera):
         if not cap.isOpened():
             logger.error(f"Unable to connect to camera at {camera_url}")
             raise ValueError("Unable to connect to the camera feed.")
+
         
         # Function to stream the video as MJPEG
         def generate():
